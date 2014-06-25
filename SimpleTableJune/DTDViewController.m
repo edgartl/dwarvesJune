@@ -17,13 +17,55 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	self.dwarves = @[@"Sleepy", @"Sneezy",
+                     @"Bashful", @"Happy", @"Doc", @"Grumpy", @"Dopey", @"Thorin",
+                     @"Dorin", @"Nori", @"Ori", @"Balin", @"Dwalin", @"Fili", @"Kili",
+                     @"Oin", @"Gloin", @"Bifur", @"Bofur", @"Bombur"];
 }
 
-- (void)didReceiveMemoryWarning
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return [self.dwarves count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *SimpleTableCell = @"SimpleTableCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableCell];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:SimpleTableCell];
+    }
+    
+    cell.textLabel.text = self.dwarves[indexPath.row];
+    //NSLog(@"Called");
+    return cell;
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

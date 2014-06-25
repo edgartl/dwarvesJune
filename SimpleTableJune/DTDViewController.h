@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DTDViewController : UIViewController
+@interface DTDViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (copy, nonatomic) NSArray *dwarves;
 
 @end
