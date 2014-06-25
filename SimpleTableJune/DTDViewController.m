@@ -44,6 +44,13 @@
                                       reuseIdentifier:SimpleTableCell];
     }
     
+    UIImage *image = [UIImage imageNamed:@"star"];
+    cell.imageView.image = image;
+    
+    UIImage *imageHighlight = [UIImage imageNamed:@"starHigh"];
+    cell.imageView.highlightedImage = imageHighlight;
+    
+    
     cell.textLabel.text = self.dwarves[indexPath.row];
     //NSLog(@"Called");
     return cell;
